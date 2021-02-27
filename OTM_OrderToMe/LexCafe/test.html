@@ -1,0 +1,56 @@
+<html>
+<head>
+  <style>
+    input {
+      font-size: 1.2em;
+      border-radius: 4px;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+  <input id="numPeople" type="number" min="0" value="" placeholder="Pick a number" />
+
+  <div id="result"></div>
+
+  <input id='button' type='button' value = 'button'/>
+  <input id ='button2' type ='button' value = 'button2'/>
+  <!-- <input id='button2' type='button' value = 'button2'/> -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+
+var n = document.getElementById("numPeople");
+var r = document.getElementById("result");
+var t = document.getElementById("button");
+var t2 = document.getElementById("button2");
+
+
+
+t.addEventListener("click",function(e){
+
+  $("#numPeople").trigger(jQuery.Event('keydown', { which: '1'.charCodeAt(0) }));
+  //왜 작동을 안하는걸까....?
+},false);
+
+// t2.addEventListener("click", function(e){
+//   alert("클릭 트리거 발동");
+// });
+
+// n.addEventListener("input", function(e) {
+//   r.innerHTML += "input event triggered <br/>";
+// }, false);
+//
+// n.addEventListener("keyup", function(e) {
+//   r.innerHTML += "keyup event triggered <br/>";
+// }, false);
+
+n.addEventListener("keydown", function(e) {
+  r.innerHTML += "down event triggered <br/>";
+}, false);
+
+
+</script>
+
+
+</body>
+</html>

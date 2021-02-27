@@ -1,0 +1,35 @@
+#app {
+    width: 1000px;
+    margin : 0px auto;
+}
+
+#app .title *{
+    margin-bottom: 15px;
+}
+#app .title .main{
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+#app .footer .Internationalization{
+    float: right;
+    margin-top : 15px;
+}
+
+#app .user-info{
+    position: relative;
+    right: 20px;
+    bottom: 5px;
+    text-align: right;
+}
+#app .user-info .nickname{
+
+}
+#app .user-info .email{
+
+}
+#app .user-info .img-config{
+    margin-bottom: 0px;
+    width: 20px;
+    margin-left: 15px;
+}

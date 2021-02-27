@@ -1,0 +1,50 @@
+<head>
+  <link rel='stylesheet' href='/public/<%= webName %>/stylesheets/<%= pageName %>.css' />
+</head>
+
+<div class="attendPicturePage">
+  <!-- <div class="create">
+    <div class="createBtn">
+      <h1> + </h1>
+    </div>
+    <div class="createUI display-none">
+      <div>
+        <input type="text" placeholder="제목">
+      </div>
+      <div>
+          <video src="" controls></video>
+      </div>
+      <div class="controllBtn">  
+        <input type="button"  value="녹화">
+        <input type="button"  value="저장">
+      </div>
+    </div>
+  </div> -->
+  
+  <div class="attendPictureList">
+    <% for(let i=0; i< lectureList.length; i++) { %>
+      <div class="attend">
+        <div class="video_id display-none"> <%= lectureList[i].lecture_video_id %></div>
+        <div class="title"> <%= lectureList[i].video_title %> </div>
+        <div class="picture"> 
+          
+        
+        
+        </div>
+        <!-- <div class="delete"> x </div> -->
+        <!-- <div class="video"></div> -->
+        <!-- <div class="controllBtn"></div> -->
+      </div>
+    <% } %>  
+  </div>
+  
+</div>
+
+<% include ../../include/baseJS.ejs %>
+<script src="/public/<%= webName %>/javascripts/<%= pageName %>.js"></script>
+<script type="text/javascripts"></script>
+
+
+
+
+

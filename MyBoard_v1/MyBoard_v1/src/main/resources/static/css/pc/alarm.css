@@ -1,0 +1,56 @@
+.component-alarm{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+.component-alarm img{
+    float: right;
+    width : 50px;
+    border-radius: 30px;
+}
+.component-alarm .alarm{
+
+}
+.component-alarm input{
+    background-color: white;
+}
+.component-alarm .close{
+    position: relative;
+    top: -40px;
+}
+.component-alarm .alarm-list{
+    position: relative;
+    left:30px;
+
+    border : 2px solid gray;
+    border-radius: 15px;
+    padding : 15px;
+    max-height: 600px;
+    overflow-y: scroll;
+    background-color: white;
+
+    width: 400px;
+    margin-bottom: 7px;
+}
+.component-alarm .alarm-list input[name=goPost]{
+    margin-left: 15px;
+    margin-right : 5px;
+}
+.component-alarm .alarm-list .alarm{
+    border-bottom : 2px solid gray;
+    margin-bottom: 15px;
+}
+
+.component-alarm .checkedAlarm {
+    background-color: gray;
+    opacity: 0.5;
+}
+.component-alarm .flag{
+    float:right;
+    position : relative;
+    right : 50px;
+    background-color: red;
+    width: 12px;
+    height : 12px;
+    border-radius: 12px;
+}

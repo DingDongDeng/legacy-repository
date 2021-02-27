@@ -1,0 +1,57 @@
+language: java
+jdk:
+  - openjdk8
+
+
+branches:
+  only:
+    - master
+
+
+#Travis CII 서버의 Home
+#cache:
+#  directories:
+#    - '$HOME/.m2/repository'
+#    - '$HOME/.gradle'  #maven 기준으로 변경해야함
+
+before_install:
+  - chmod +x ./MyBoard_v1/mvnw
+
+## master 브랜치에 푸시되었을때 수행하는 명령어
+script:
+  - echo "> start build"
+  - cd ./MyBoard_v1
+  - mvn package -Dmaven.test.skip=true
+  - cd ..
+
+before_deploy:
+    - zip -r myboardv1-webservice *
+    - mkdir -p deploy
+    - mv myboardv1-webservice.zip deploy/myboardv1-webservice.zip
+
+deploy:
+    - provider: s3
+      access_key_id: $AWS_ACCESS_KEY #travis에서 환경변수로 주입됨
+      secret_access_key: $AWS_SECRET_KEY
+      bucket: myboardv1-build
+      region: ap-northeast-2
+      skip_cleanup: true
+      acl: private #zip파일 접근을 private으로
+      local_dir: deploy #before_deploy에서 생성한 디렉토리
+      wait-until-deployed: true
+
+    - provider: codedeploy
+      access_key_id: $AWS_ACCESS_KEY
+      secret_access_key: $AWS_SECRET_KEY
+      bucket: myboardv1-build
+      key: myboardv1-webservice.zip
+      bundle_type: zip
+      application: myboardv1-webservice
+      deployment_group: myboardv1-webservice-group
+      region: ap-northeast-2
+      wait-until-deployed: true
+
+notifications:
+  email:
+    recipients:
+      - tpea888@gmail.com

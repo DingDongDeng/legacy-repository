@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= pageName %></title>
+    <link rel='stylesheet' href='/public/<%= webName %>/stylesheets/template.css' />
+  </head>
+  <body>
+    
+    <div class = "template">
+      <div class="topBar">
+
+        <div class="title">
+          
+          <img class='logo' src="/public/<%= webName %>/img/그룹 6.png" alt="sroomi_Logo">          
+          <!-- <div name="main"> SrOOmi</div> -->
+          <!-- 스루미 로고로 교체 -->
+          <div class="sub"> <b>경비 관리 시스템</b></div>
+        </div>
+        <div class="info">
+            <div class='profile'> 
+              <div class="name">
+                  <%= user.name %> 경비님
+              </div>
+              <img class="profile-img" src="/public/<%= webName %>/img/그룹 9.png" alt="">  
+            </div>
+            <input class="logout" type="button" name = "logout" value="logout">
+          </div>
+        <!-- <div class="process">
+          <input type="button" name="attendManagement" value="출석관리">
+          <input type="button" name="lectureManagement"value="강의관리">
+        </div> -->
+      </div>
+      <!-- <div class="sideBar"></div> -->
+      <div class="page"> 
+        <%- include('../page/'+pageName+'.ejs') %>
+      </div>
+    </div>
+    <script src="/public/<%= webName %>/javascripts/template.js"></script>
+  </body>
+</html>

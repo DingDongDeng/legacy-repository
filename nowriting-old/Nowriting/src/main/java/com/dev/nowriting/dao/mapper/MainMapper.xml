@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+ <mapper namespace="com.dev.nowriting.dao.MainMapper">
+ 	<update id="insertProject">
+ 		INSERT INTO PROJECT(PID,PNAME,MAIL) 
+ 		VALUES(
+ 			PROJECT_SEQ.NEXTVAL,
+ 		 	#{pName},
+ 		  	#{mail}
+ 		)
+ 	</update>
+ 	
+ 	<select id="getProjectList" resultType="com.dev.nowriting.dto.ProjectDTO">
+		SELECT PID, PNAME, MAIL 
+		FROM PROJECT
+		WHERE MAIL=#{mail} 
+		ORDER BY PNAME ASC
+ 	</select>
+ 	
+ 	<delete id="deleteProject">
+ 		DELETE FROM PROJECT
+ 		WHERE MAIL=#{mail} AND PID=#{pId} AND PNAME=#{pName}
+ 	</delete>
+ 	
+ 	<select id="contentCnt" resultType="java.lang.Integer">
+ 		SELECT COUNT(PID) 
+ 		FROM CONTENT 
+ 		WHERE PID=#{pId} AND PAGE = #{page} 
+ 	</select>
+ 	
+ 	<insert id="insertContent">
+ 		INSERT INTO CONTENT (
+ 			PID,
+ 			PAGE,
+ 			CONTENT
+ 		)
+ 		VALUES(
+ 			#{pId},
+ 			#{page},
+ 			#{content}		
+ 		)
+ 	</insert>
+ 	
+ 	<update id="updateContent" >
+ 		UPDATE CONTENT 
+ 		SET CONTENT = #{content}
+ 		WHERE PID =#{pId} AND PAGE=#{page} 
+ 	</update>
+ 	
+ 	<select id="findContentMaxPage" resultType="com.dev.nowriting.dto.ContentDTO">
+	 	SELECT PID, CONTENT, PAGE
+	 	FROM CONTENT
+	 	WHERE PID=#{pId} AND PAGE=(
+		 		SELECT MAX(TO_NUMBER(PAGE)) 
+		 		FROM CONTENT 
+		 		WHERE PID=#{pId}
+	 		)
+ 	
+ 	</select>
+ 	
+ 	<select id="findContentPage" resultType="com.dev.nowriting.dto.ContentDTO">
+	 	SELECT PID, CONTENT, PAGE
+	 	FROM CONTENT
+	 	WHERE PID=#{pId} AND PAGE=#{page}
+ 	</select>
+ 	
+ 	<delete id="deleteContentPage">
+ 		DELETE FROM CONTENT
+ 		WHERE PID=#{pId} AND PAGE=#{page}
+ 	</delete>
+ 	
+ 	<select id="getContentList" resultType="com.dev.nowriting.dto.ContentDTO">
+ 		SELECT PID, CONTENT, PAGE
+ 		FROM CONTENT
+ 		WHERE PID=#{pId}
+ 		ORDER BY TO_NUMBER(PAGE) ASC
+ 	</select>
+ 	
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

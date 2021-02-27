@@ -1,0 +1,86 @@
+.display-none{
+    display: none;
+}
+.timeTable{
+    background-color: white;
+    /* width: 1550px; */
+    width:1238px;
+    margin: 0px auto;
+}
+
+.timeTablePage *{
+    border: none;
+}
+
+/* 시간표의 교시 */
+.timeTablePage .timeTable .time{ 
+    width: 11px;
+    height: 27px;
+    font-family: SegoeUI;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: left;
+    color: #3e3e3e;
+}
+
+/* 시간표의 헤드라인(가장 윗 행)*/
+.timeTablePage .timeTable .tableHead{
+    text-align: center !important;
+    width: 25px;
+    height: 100px;
+    font-family: SegoeUI;
+    font-size: 25px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9e9e9e;
+
+    margin-bottom: 15px;
+
+}
+
+/* 시간표 모든 칸 */
+.timeTablePage .timeTable .timeTableParts{    
+    width:130px;
+    height : 80px;
+    text-align : center;
+    padding: 10px 0px;
+    color: #ffffff;
+}
+.timeTablePage .timeTable .timeTableParts >div {
+    position: relative;
+    left: 45px;
+    width:160px;
+    height: 100%;
+}
+/*강의가 존재하는 시간표칸*/
+.timeTablePage .timeTable .lecture{
+    /* background-color: #64c4ed */
+}
+
+
+/* 시간표 칸의 강의명 */
+.timeTablePage .timeTable .lectureName{
+    font-size: 1.6em;
+}
+/* 시간표 칸의 강의실 */
+.timeTablePage .timeTable .lectureRoom{
+    font-size: 1.2em;
+}
+
+/* 로고이미지 */
+.logo{
+    width: 151px;
+}
+
+h1{
+    font-size: 5px;
+    margin-top: 0;
+}

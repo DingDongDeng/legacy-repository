@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+ <mapper namespace="com.programmers.todolist.dao.ListMapper">
+ 	<insert id="insertListWithDate">
+ 		INSERT INTO TODOLIST(
+ 			MAIL,
+ 			PRIORITY,
+ 			TITLE,
+ 			DEADLINE,
+ 			CONTENT,
+ 			STATE	
+ 		) 
+ 		VALUES(
+ 			#{listDTO.mail},
+ 			#{listDTO.priority},
+ 			#{listDTO.title},
+ 			#{listDTO.deadline},
+ 			#{listDTO.content},
+ 			#{listDTO.state}
+ 		)
+ 	</insert>
+ 	
+ 	<insert id="insertList">
+ 		INSERT INTO TODOLIST(
+ 			MAIL,
+ 			PRIORITY,
+ 			TITLE,
+ 			CONTENT,
+ 			STATE	
+ 		) 
+ 		VALUES(
+ 			#{listDTO.mail},
+ 			#{listDTO.priority},
+ 			#{listDTO.title},
+ 			#{listDTO.content},
+ 			#{listDTO.state}
+ 		)
+ 	</insert>
+ 	
+ 	<select id="cntList" resultType="java.lang.Integer">
+ 		SELECT COUNT(TITLE) 
+ 		FROM TODOLIST
+ 		WHERE MAIL = #{mail}
+ 	</select>
+ 	
+ 	<select id="selectList" resultType="com.programmers.todolist.dto.ListDTO">
+ 		SELECT 
+ 			 MAIL,
+ 			 PRIORITY,
+ 			 TITLE,
+ 			 DEADLINE,
+ 			 CONTENT,
+ 			 STATE
+ 		FROM TODOLIST
+ 		WHERE MAIL = #{mail}
+ 		ORDER BY PRIORITY ASC
+ 	</select>
+ 	
+ 	<delete id="deleteList">
+ 		DELETE FROM TODOLIST
+ 		WHERE MAIL=#{mail} and PRIORITY=#{priority}
+ 	</delete>
+ 	 
+ 	<update id="updatePriorityAfterDelete">
+ 		<![CDATA[
+ 		UPDATE TODOLIST
+ 		SET PRIORITY = PRIORITY - 1
+ 		WHERE MAIL=#{mail} and PRIORITY>#{priority}
+ 		]]>
+ 	</update>
+ 	
+ 	
+ 	<select id="selectMaxPriority" resultType="java.lang.Integer">
+ 		SELECT NVL(MAX(PRIORITY),0) 
+ 		FROM TODOLIST
+ 		WHERE MAIL = #{mail}
+ 	</select>
+ 	<update id="updateListWithDate">
+ 		UPDATE TODOLIST 
+    	SET TITLE=#{listDTO.title},
+    	 	DEADLINE=#{listDTO.deadline}, 
+    		content=#{listDTO.content}
+    	WHERE MAIL=#{listDTO.mail} AND PRIORITY=#{listDTO.priority}
+ 	</update>
+ 	<update id="updateList">
+ 		UPDATE TODOLIST 
+    	SET TITLE=#{listDTO.title},
+    	 	DEADLINE=NULL, 
+    		content=#{listDTO.content}
+    	WHERE MAIL=#{listDTO.mail} AND PRIORITY=#{listDTO.priority}
+ 	</update>
+ 	<update id="updateState">
+ 		UPDATE TODOLIST 
+    	SET STATE = #{state}
+    	WHERE MAIL=#{mail} AND PRIORITY=#{priority}
+ 	</update>
+ 	
+ 	<update id="updatePriorityUpDown">
+ 		UPDATE TODOLIST 
+    	SET PRIORITY = #{priority2} 
+    	WHERE MAIL=#{mail} AND PRIORITY=#{priority1}
+ 	</update>
+ 	
+ 	
+ 	<select id="selectDeadlineOverList" resultType="com.programmers.todolist.dto.ListDTO">
+		<![CDATA[
+		SELECT 
+ 			 MAIL,
+ 			 PRIORITY,
+ 			 TITLE,
+ 			 DEADLINE,
+ 			 CONTENT,
+ 			 STATE
+ 		FROM TODOLIST
+ 		WHERE DEADLINE <= SYSDATE AND MAIL = #{mail} AND STATE ='R'
+ 		ORDER BY PRIORITY ASC
+ 		]]> 
+ 	</select>
+
+ </mapper>

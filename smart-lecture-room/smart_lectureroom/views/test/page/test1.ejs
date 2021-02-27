@@ -1,0 +1,64 @@
+<!--
+Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
+-->
+<<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <input id='file1' type='file' value='file upload'><br>
+  <input id='file2' type='file' value='file upload'><br>
+  <input type='button' value='encoding' >
+
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript"></script>
+<script>
+  function getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
+  function fileEncodingBase64(){
+    var file1 = document.querySelector('#file1').files[0];
+    var file2 = document.querySelector('#file2').files[0];
+
+    getBase64(file1).then((data1)=>{
+      getBase64(file2).then((data2)=>{
+        console.log(data1);
+        data1 = data1.substr(23,data1.length);
+        data2 = data2.substr(23,data2.length);
+
+        $.ajax({
+          type : "post",
+          url : "/test/process/test1",
+          data : JSON.stringify({img1: data1.trim(), img2 : data2.trim()}),
+          // data : JSON.stringify({img1: "1111", img2 : "22222"}),
+          contentType : "application/json; charset=utf-8",
+          success:(data)=>{
+            console.log("finished compare Img");
+            console.log(data2);
+
+          },
+          error:(err)=>{
+            console.log("err");
+          }
+
+        })
+      })
+    }
+      
+    );
+  }
+  document.querySelector('input[type="button"]').addEventListener("click", fileEncodingBase64);
+
+</script>
+
+</html>

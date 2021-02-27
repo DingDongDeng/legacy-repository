@@ -1,0 +1,39 @@
+.title{
+	/* border : 3px solid black; */
+	/* background-color : #2ecc71; */
+	/* background-color : #2C3B8A; */
+	background-color : #0F1E17;
+	padding : 10px;
+}
+
+.title h1{
+	display : inline;
+	color : white;
+	margin-left : 50px;
+}
+
+.title h3{
+	display : inline;
+	color : white;
+	margin-left : 50px;
+}
+
+.title .buttons{
+	display : inline-block;
+	width : 100%;
+	text-align :right;
+	margin-top : -25px;
+	
+}
+
+.title .buttons input[type=button]{
+    background: none;
+	border: 3px solid #fff;
+	border-radius: 5px;
+    color: #fff;
+	font-size: 0.8em;
+	font-weight: bold;
+	margin: 3px 3px;
+	padding: 0.7em 2.4em;
+
+}

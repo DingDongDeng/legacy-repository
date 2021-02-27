@@ -1,0 +1,71 @@
+<head>
+  <link rel='stylesheet' href='/public/<%= webName %>/stylesheets/<%= pageName %>.css' />
+</head>
+
+<div class="mainPage">
+    <div class="room-selector">
+        
+        <!-- 이부분을 서버코드로 반복시키자  -->
+        <!-- ------------ 아마 2중 for문.... ------------>
+        <% for(let i=0; i< roomInfo.length; i++) { %>
+            <div name="room-group">
+                <div class="building-name"> 
+                    <img src="/public/<%= webName %>/img/꺽쇠.png"> </img> 
+                    &nbsp; <%= roomInfo[i].building_name %>
+                </div>
+                <div class="room-list display-none">    
+                    <% for(let j=0; j< roomInfo[i].roomList.length; j++) { %>
+                        <div class="room">
+                            <div class="room-id display-none"> <%= roomInfo[i].roomList[j].lectureroom_id %> </div>
+                            <div class="camera-id display-none"> <%= roomInfo[i].roomList[j].camera_ip.back %> </div>
+                            <div class="camera-id2 display-none"> <%= roomInfo[i].roomList[j].camera_ip.front %> </div>
+                            <div class="room-num"><%= roomInfo[i].roomList[j].lectureroom_num %></div>
+                            <div class="room-state"> 
+                                <div class="door"></div>
+                                <div class="light"></div>
+                            </div>
+                        </div>
+                    <% } %>                
+                </div>
+            </div>
+        <% } %>
+        <!-- ----------------------------------------- -->
+
+        
+    </div>
+    <div class="room-view">
+        <div class="building-name" style="display: none"><%= roomInfo[0].building_name %></div>
+        <div class="room-num display-none"><%= roomInfo[0].roomList[0].lectureroom_num %></div>
+        <div class="ip display-none"> <%= roomInfo[0].roomList[0].camera_ip.back %></div>
+        <div class="ip2 display-none"> <%= roomInfo[0].roomList[0].camera_ip.front %> </div>
+        <div class="cctv-list">
+            <!-- <canvas class="cctv" id="videoCanvas" width="1280" height="960">
+                <p>
+                    
+                </p>
+            </canvas> -->
+        </div>
+        
+    </div>
+    <div id="controller">
+        <div class="controllerLeft">
+            <input name="all-lights-on" type="button" value="일괄 점등">
+            <input name="all-lights-off" type="button" value="일괄 소등">
+            <input name="all-doors-opened" type="button" value="일괄 개방">
+            <input name="all-doors-closed" type="button" value="일괄 폐쇄">
+        </div>
+
+        <div class="controllerRight">
+            <input name="light-on" type="button" value="점등">
+            <input name="light-off" type="button" value="소등">
+            <input name="door-opened" type="button" value="개방">
+            <input name="door-closed" type="button" value="폐쇄">
+        </div>
+    </div>
+</div>
+
+<% include ../../include/baseJS.ejs %>
+<script src="/public/commonJS/jsmpeg.min.js"></script>
+<script src="/public/commonJS/ajaxVideoRequestMulti.test.js?id=<%= user.id %>"></script>
+<script src="/public/<%= webName %>/javascripts/<%= pageName %>.js"></script>
+<script type="text/javascripts"></script>

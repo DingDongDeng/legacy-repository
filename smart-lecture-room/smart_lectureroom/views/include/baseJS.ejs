@@ -1,0 +1,12 @@
+
+<script>
+    var targetUser = "<%= webName %>".split("_")[0];
+</script>
+<!--commonJS/ajaxRequest와 상호 의존관계-->
+<!--로딩화면을 만들기 위한 html과 style이 정의되어있음-->
+<% include loadingUI.ejs %> 
+<script src="/public/commonJS/jquery/jquery-3.4.1.min.js"></script>
+<!--ajaxRequest에서는 대기화면 구성을 위해 위의 loadingUI.ejs를 조작함-->
+<script src="/public/commonJS/ajaxRequest.js"></script>
+<script src="/public/commonJS/alertResult.js"></script>
+<script src="/public/commonJS/dateFormat.js"></script>

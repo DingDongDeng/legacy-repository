@@ -1,0 +1,368 @@
+몽고디비 설치
+https://devlog.jwgo.kr/2019/02/26/how-to-install-mongodb-on-ubuntu/
+
+DB에 사용자 계정 아이디,비번 적용시키기
+ec2인스턴스에서 보안그룹 설정하기
+
+--------------------------------------------
+몽고 디비 명령어
+
+insert
+db.컬렉션명.insert(document)
+
+select
+db.컬렉션명.find([query, projection])
+
+delete
+db.컬렉션명.remove(criteria[, justOne])
+
+참고 https://beagle-dev.tistory.com/160
+
+update
+db.컬렉션명.update(쿼리, 수정내용)
+참고 https://velopert.com/545    (배열에 값추가하는거, 정렬 등등있음)
+
+db삭제
+use db명
+db.dropDatabase()
+
+row 삭제
+db.컬렉션명.deleteOne({ name: 'Zerp' }); //매칭되는 하나만 삭제
+db.컬렉션명.deleteMany({ name: 'Zerp' }); //매칭되는 것 모두 삭제
+
+
+
+collection 조인
+db.collection.aggregate([
+   { $lookup: { 
+	from: 조인할 다른 컬렉션 ,
+	localField : 조인할 현재 컬렉션의 필드,
+	foreignField : 조인할 다른 컬렉션의 필드,
+	as : 입력 도큐머트에 더해질 새로운 배열 필드의 이름
+} }
+])
+참고 https://velog.io/@suyoung154/MongoDB-lookupaggregation
+참고 https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#pipe._S_lookup      <---배열 요소를 조인하는법....힌트..쯤....
+이거는 예시 : 
+db.TB_PROFESSOR.aggregate(
+	[{$lookup : {
+		 from : "TB_LECTURE",
+		localField :"lecture_id", 
+		foreignField : $in:[localField.elem1]      
+		as : "testJoin" 
+	}
+}])
+
+
+쿼리심화
+
+참고 https://velopert.com/479
+
+-------------------------------사용한 sql문 리스트----------------
+@SMART_LECTUREROOM
+
+use SMART_LECTUREROOM
+@TB_GUARD
+db.TB_GUARD.insert({"guard_id":"admin","guard_pw":"1234","guard_name":"홍길동"})
+
+
+@TB_PROFESSOR
+
+db.TB_PROFESSOR.insert({"professor_id":"admin" , "professor_pw":"1234", "professor_name" : "홍길동", "lecture_list" : ['1','2','3']})
+
+@TB_LECUTRE
+db.TB_LECTURE.insert({
+"lecture_id" : "1",
+"lecture_name" : "알고리즘",
+"professor_id" : "admin",
+"lecture_info" : [ 
+{"lectureroom_id" : "1" , "lecture_time":"목8"},
+{"lectureroom_id" : "1" , "lecture_time":"목9"},
+{"lectureroom_id" : "2" , "lecture_time":"월2"}
+] ,
+"student_list" : [
+"2014335066",
+"2014335042",
+"2016100876",
+"2016100912"
+]
+})
+
+
+
+db.TB_LECTURE.insert({
+"lecture_id" : "2",
+"lecture_name" : "자료구조",
+"professor_id" : "admin",
+"lecture_info" : [ 
+{"lectureroom_id" : "2" , "lecture_time":"화5"},
+{"lectureroom_id" : "2" , "lecture_time":"화6"},
+{"lectureroom_id" : "2" , "lecture_time":"화7"}
+] ,
+"student_list" : [
+"2014335066",
+"2014335042",
+"2016100876",
+"2016100912"
+]
+})
+
+db.TB_LECTURE.insert({
+"lecture_id" : "3",
+"lecture_name" : "자바스크립트",
+"professor_id" : "admin",
+"lecture_info" : [ 
+{"lectureroom_id" : "1" , "lecture_time":"목1"},
+{"lectureroom_id" : "1" , "lecture_time":"목2"},
+{"lectureroom_id" : "1" , "lecture_time":"목3"}
+] ,
+"student_list" : [
+"2014335066",
+"2014335042",
+"2016100876",
+"2016100912"
+]
+})
+
+
+@TB_LECTURE_VIDEO
+db.TB_LECTURE_VIDEO.insert({
+"lecture_id" : "1",
+"video_info" : [
+{
+"lecture_video_id" : 0,
+"video_title" : "테스트",
+"video_path" : "/resources/video/lecture/algorithm/0"
+}
+]
+})
+db.TB_LECTURE_VIDEO.insert({
+"lecture_id" : "1",
+"video_info" : [
+]
+})
+db.TB_LECTURE_VIDEO.insert({
+"lecture_id" : "2",
+"video_info" : [
+]
+})
+db.TB_LECTURE_VIDEO.insert({
+"lecture_id" : "3",
+"video_info" : [
+]
+})
+
+
+@TB_LECTUREROOM
+
+//알고리즘 411
+//자바스크립트 410
+db.TB_LECTUREROOM.insert({
+"lectureroom_id" : "1",
+"building_name" : "실습관",
+"lectureroom_num" : "411호",
+"camera_ip" : {
+"front" : "sroomipiweb.ngrok.io.ngrok.io",
+"back" : "1.tcp.ngrok.io:27552"
+}
+})
+
+
+db.TB_LECTUREROOM.insert({
+"lectureroom_id" : "2",
+"building_name" : "실습관",
+"lectureroom_num" : "410호",
+"camera_ip" : {
+"front" : "41c2664f.ngrok.io",
+"back" : "1.tcp.ngrok.io:27552"
+}
+})
+
+db.TB_LECTUREROOM.insert({
+"lectureroom_id" : "3",
+"building_name" : "다니엘관",
+"lectureroom_num" : "321호",
+"camera_ip" : {
+"front" : "sroomipiweb.ngrok.io.ngrok.io",
+"back" : "1.tcp.ngrok.io:27552"
+}
+})
+
+@TB_STUDENT
+
+db.TB_STUDENT.insert({
+"student_id" : "2014335066",
+"student_password" : "1234",
+"student_name" : "이름",
+"student_picture" : "2014335066.jpg",
+"lecture_list" : ["1", "2", "3"],
+"student_token" : null
+})
+
+db.TB_STUDENT.insert({
+"student_id" : "2014335042",
+"student_password" : "1234",
+"student_name" : "이름",
+"student_picture" : "2014335042.jpg",
+"lecture_list" : ["1", "2", "3"],
+"student_token" : null
+})
+
+db.TB_STUDENT.insert({
+"student_id" : "2016100876",
+"student_password" : "1234",
+"student_name" : "이름",
+"student_picture" : "2016100876.jpg",
+"lecture_list" : ["1", "2", "3"],
+"student_token" : null
+})
+
+db.TB_STUDENT.insert({
+"student_id" : "2016100912",
+"student_password" : "1234",
+"student_name" : "이름",
+"student_picture" : "2016100912.jpg",
+"lecture_list" : ["1", "2", "3"],
+"student_token" : null
+})
+
+@TB_ATTEND
+---------------메모-----------------------
+
+//출석추가
+db.TB_ATTEND.update(
+{"lecture_id" : "1"},
+{$push : {"attend_info" : {"test":"teset"}}}
+)
+
+//기존 출석 수정
+db.TB_ATTEND.update(
+{$and:[ {"attend_info":{$elemMatch : {"attend_id" : "2"} }},{"lecture_id" : "1"} ]},
+{$set:{"attend_info.$.attendence": {"newObject" : "hihihii"} }}
+)
+{"attend_info":{$elemMatch : {"attend_id" : "2"} }},
+
+//기존 출석 수정(특정 학생을 지각으로 변경)
+db.TB_ATTEND.update(
+                    {
+                        $and:[ 
+                            {
+                                "attend_info":{
+                                    $elemMatch : {
+                                        "attend_id" : "50",
+                                        "attendence":{
+                                             $elemMatch : {
+                                                 "lecture_session" :"1",
+			     "student_id" : "2014335066"
+                                              }
+
+                                        }
+                                    }                                    
+                                }
+                            },
+                            
+                            {
+                                "lecture_id" : "3"
+                            } 
+                        ]
+                    },
+                    {
+                        $set:{
+                            "attend_info.$[outer].attendence.$[inner]": { 
+		"student_id" : "2014335066",
+                                "attend_state":"A002",
+		"lecture_session" :"1"
+                            } 
+                        }
+                    },
+{
+"arrayFilters" : [ {"outer.attend_id" : "50"} , {"inner.student_id" : "2014335066","inner.lecture_session":"1"}]
+}
+                )
+
+//출석삭제
+db.TB_ATTEND.update(
+{$and:[ {"attend_info":{$elemMatch : {"attend_id" : "0"} }},{"lecture_id" : "1"} ]},
+{$pull:{"attend_info":{"attend_id" : "0"} }})
+
+
+------------------------------------------------------------
+db.TB_ATTEND.insert({
+"lecture_id" : "2",
+"attend_info" : [{
+"attend_id" : "1",
+"attend_date" : "2016-09-12",
+"attendence" : [{
+"student_id" : "2014335066",
+"lecture_session" : "1",
+"attend_state" : "A001",
+"picture_path" : "test_path..."
+},
+{
+"student_id" : "2014335042",
+"lecture_session" : "1",
+"attend_state" : "A003",
+"picture_path" : "test_path..."
+},
+{
+"student_id" : "2016100876",
+"lecture_session" : "1",
+"attend_state" : "A002",
+"picture_path" : "test_path..."
+},
+{
+"student_id" : "2016100912",
+"lecture_session" : "1",
+"attend_state" : "A003",
+"picture_path" : "test_path..."
+}]
+}]
+})
+
+@TB_COUNTERS
+db.TB_COUNTERS.insert({"name":"attend_id", "seq":0})
+db.TB_COUNTERS.insert({"name":"lecture_video_id", "seq":0})
+db.TB_COUNTERS.insert({"name":"attend_picture_id", "seq":0})
+
+db.TB_COUNTERS.findAndModify({query :{"name":"attend_id"},update:{"$inc":{"seq":1}}})
+//위에껀 사용권장하지않는데....
+
+db.TB_COUNTERS.findOneAndUpdate({"name":"attend_id"},{"$inc":{"seq":1}})
+db.TB_COUNTERS.findOneAndUpdate({"name":"lecture_video_id"},{"$inc":{"seq":1}})
+db.TB_COUNTERS.findOneAndUpdate({"name":"attend_picture_id"},{"$inc":{"seq":1}})
+
+-------------------------------------------------------------------
+
+db.orders.aggregate([
+   {
+      $unwind: "$specs"
+   },
+   {
+      $lookup:
+         {
+            from: "TB_LECTUREROOM",
+            localField: "lectureroom_id",
+            foreignField: "lectureroom_id",
+            as: "inventory_docs"
+        }
+   },
+   {
+      $match: { "inventory_docs": { $ne: [] } }
+   }
+])
+
+
+db.TB_LECTURE.aggregate([
+   {
+      $lookup:
+         {
+            from: "TB_LECTUREROOM",
+            localField: "lectureroom_id",
+            foreignField: "lectureroom_id",
+            as: "inventory_docs"
+        }
+   },
+   {
+      $match: { "inventory_docs": { $ne: [] } }
+   }
+])

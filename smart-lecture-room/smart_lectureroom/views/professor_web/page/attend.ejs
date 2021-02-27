@@ -1,0 +1,103 @@
+<head>
+  <link rel='stylesheet' href='/public/<%= webName %>/stylesheets/<%= pageName %>.css' />
+</head>
+
+<div class="attendPage">
+  <div class="lecture-name"> <%= lectureName %> </div>
+  <div class="create">
+    <div class="createBtn">
+        <img src="/public/<%= webName %>/img/꺽쇠.png"> </img> 
+        &nbsp; 출석부
+    </div>
+    <div class="createUI display-none">
+      <div class="studentList">
+        <table class='titleTable'>
+          <tr>
+            <td style="width:14px;"></td>
+            <td style="width:150px;"></td>
+            <td >학번 이름</td>
+            <td style="width:432px;"></td>
+            <td >출석 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 지각 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 결석</td>
+          </tr>
+        </table>
+        <table class="issueAttendence" border="1">
+          
+        </table>
+
+        <table class="normalAttendence" border="1">
+            
+          <% for(let i=0; i< studentList.length; i++) { %>
+            <tr class="student">
+              <td > <div class="color"></div></td>
+              <td class="picture">
+                <img src="/resources/images/student/<%= studentList[i].student_picture %>">
+              </td>
+              <td class="id">
+                  <%= studentList[i].student_id %>
+              </td>
+              <td class="name">
+                  <%= studentList[i].student_name %>
+              </td>
+              <td class="attend">
+                  <span class="checks">
+                      <input class="a001" type="radio" id="attend<%= i+'_a' %>" name="attend<%= i %>" value="A001"><label for="attend<%= i+'_a' %>"></label>
+                  </span>
+                  <span class="checks">
+                      <input class="a002" type="radio" id="attend<%= i+'_b' %>" name="attend<%= i %>" value="A002"><label for="attend<%= i+'_b' %>"></label>
+                  </span>
+                  <span class="checks">
+                      <input class="a003" type="radio" id="attend<%= i+'_c' %>" name="attend<%= i %>" value="A003"><label for="attend<%= i+'_c' %>"></label>
+                  </span>                  
+              </td>
+              <td class="token display-none">
+                <%= studentList[i].student_token %>
+              </td>
+            </tr>
+          <% } %>
+        </table>
+      </div>
+      <div class="controllBtn">
+        <select name="session">
+          <option value="1">1차시</option>
+          <option value="2">2차시</option>
+          <option value="3">3차시</option>
+          <option value="4">4차시</option>
+          <option value="5">5차시</option>
+        </select>
+        <input type="button" name="autoAttendence" value="자동 출석">
+        <input type="button" name="saveBtn_StudentList" value="출석 저장">
+        </br>
+        
+        자동저장<input type ="checkbox" name ="autoSaveFlag" value="1">
+        <span class="display-none">
+            지각처리 <input style="width: 15px;" type="text" name="late" value="10">분
+        </span>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="attendList">
+    <% for(let i=0; i< attendList.length; i++) { %>
+      <% const day = attendList[i].attend_date.substring(0,10).split('-') %>
+      <div class="attend">
+        <div class="attendID display-none"> <%= attendList[i].attend_id %></div>
+        <div class="title">
+          <img src="/public/<%= webName %>/img/꺽쇠.png"> </img>
+          &nbsp; <%= day[0]+"년 "+day[1]+"월 "+day[2]+"일 " %> <%= attendList[i].attendence[0].lecture_session %>차시 &nbsp;&nbsp;&nbsp;&nbsp; <%= lectureName %>
+        </div>
+        <div class="delete"> x </div>
+        <div class="info"></div>
+        <div class="controllBtn"></div>
+      </div>
+    <% } %>  
+  </div>
+  
+</div>
+
+<% include ../../include/baseJS.ejs %>
+<script src="/public/<%= webName %>/javascripts/<%= pageName %>.js"></script>
+<script type="text/javascripts"></script>
+<script>
+  var defaultStudentList = $(".attendPage .createUI .studentList").clone(); //초기 출석리스트를 저장함(createUI안에있는)
+</script>

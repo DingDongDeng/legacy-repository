@@ -1,0 +1,114 @@
+#!/usr/bin/env node
+
+/**
+ * 경비 소켓서버 3030,3001포트 사용
+ * 클라이언트 -> 소켓서버 -> 라즈베리파이
+ */
+var socketServer_security = require('../socket_server/security/socket_security');
+var socketServer_professor = require('../socket_server/professor/ws_professor');
+
+// var socketServer_security = require('../net_server/net_security');
+// socketServer_security.listen(3030, function() {
+//   console.log('Server listening: ' + JSON.stringify(socketServer_security.address()));
+//   socketServer_security.on('close', function(){
+//       console.log('Server Terminated');
+//   });
+//   socketServer_security.on('error', function(err){
+//       console.log('Server Error: ', JSON.stringify(err));
+//   });
+// });
+
+
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('smart-lecture-room:server');
+var http = require('http');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+
+
+

@@ -1,0 +1,83 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<script th:fragment="script" th:inline="javascript">
+    /*<![CDATA[*/
+    function i18n(key){
+        const messages = {
+            'index.need.login' : [[${#messages.msg('index.need.login')}]],
+            'index.signup.complete' :  [[${#messages.msg('index.signup.complete')}]],
+            'index.unknown' : [[${#messages.msg('index.unknown')}]],
+
+            'index.board.number' : [[${#messages.msg('index.board.number')}]],
+            'index.board.title' : [[${#messages.msg('index.board.title')}]],
+            'index.board.like' : [[${#messages.msg('index.board.like')}]],
+            'index.board.view' : [[${#messages.msg('index.board.view')}]],
+            'index.board.regdate' : [[${#messages.msg('index.board.regdate')}]],
+            'index.board.update' : [[${#messages.msg('index.board.update')}]],
+            'index.board.nickname' : [[${#messages.msg('index.board.nickname')}]],
+            'index.board.write' : [[${#messages.msg('index.board.write')}]],
+            'index.board.prev' : [[${#messages.msg('index.board.prev')}]],
+            'index.board.next' : [[${#messages.msg('index.board.next')}]],
+
+            'index.board.search' : [[${#messages.msg('index.board.search')}]],
+            'index.board.search.title' : [[${#messages.msg('index.board.search.title')}]],
+            'index.board.search.content' : [[${#messages.msg('index.board.search.content')}]],
+            'index.board.search.title_content' : [[${#messages.msg('index.board.search.title_content')}]],
+            'index.board.search.nickname' : [[${#messages.msg('index.board.search.nickname')}]],
+            'index.board.search.return' : [[${#messages.msg('index.board.search.return')}]],
+
+
+            'index.post' : [[${#messages.msg('index.post')}]],
+            'index.post.title.placeholder' : [[${#messages.msg('index.post.title.placeholder')}]],
+            'index.post.content.placeholder' : [[${#messages.msg('index.post.content.placeholder')}]],
+            'index.post.down' : [[${#messages.msg('index.post.down')}]],
+            'index.post.modify' : [[${#messages.msg('index.post.modify')}]],
+            'index.post.delete' : [[${#messages.msg('index.post.delete')}]],
+            'index.post.cancle' : [[${#messages.msg('index.post.cancle')}]],
+            'index.post.complete' : [[${#messages.msg('index.post.complete')}]],
+            'index.post.delete.alert' : [[${#messages.msg('index.post.delete.alert')}]],
+
+
+            'index.comment.placeholder' : [[${#messages.msg('index.comment.placeholder')}]],
+            'index.comment.write' : [[${#messages.msg('index.comment.write')}]],
+            'index.comment.reply' : [[${#messages.msg('index.comment.reply')}]],
+            'index.comment.reply.placeholder' : [[${#messages.msg('index.comment.reply.placeholder')}]],
+            'index.comment.removed' : [[${#messages.msg('index.comment.removed')}]],
+            'index.comment.complete' : [[${#messages.msg('index.comment.complete')}]],
+            'index.comment.cancle' : [[${#messages.msg('index.comment.cancle')}]],
+            'index.comment.like' : [[${#messages.msg('index.comment.like')}]],
+            'index.comment.regdate' : [[${#messages.msg('index.comment.regdate')}]],
+            'index.comment.update' : [[${#messages.msg('index.comment.update')}]],
+            'index.comment.modify' : [[${#messages.msg('index.comment.modify')}]],
+            'index.comment.delete' : [[${#messages.msg('index.comment.delete')}]],
+
+            'index.signin.title' : [[${#messages.msg('index.signin.title')}]],
+            'index.signin.email.placeholder' : [[${#messages.msg('index.signin.email.placeholder')}]],
+            'index.signin.password.placeholder' : [[${#messages.msg('index.signin.password.placeholder')}]],
+            'index.signin' : [[${#messages.msg('index.signin')}]],
+            'index.signup' : [[${#messages.msg('index.signup')}]],
+
+            'index.signup.guide' : [[${#messages.msg('index.signup.guide')}]],
+            'index.signup.nickname.placeholder' : [[${#messages.msg('index.signup.nickname.placeholder')}]],
+            'index.signup.email.placeholder' : [[${#messages.msg('index.signup.email.placeholder')}]],
+            'index.signup.password.placeholder' : [[${#messages.msg('index.signup.password.placeholder')}]],
+            'index.signup.passwordcheck.placeholder' : [[${#messages.msg('index.signup.passwordcheck.placeholder')}]],
+
+            'index.logout.confirm' : [[${#messages.msg('index.logout.confirm')}]],
+
+            "index.userinfo.guide" : [[${#messages.msg('index.userinfo.guide')}]],
+            "index.userinfo.modify" : [[${#messages.msg('index.userinfo.modify')}]],
+            "index.userinfo.complete" : [[${#messages.msg('index.userinfo.complete')}]],
+            "index.userinfo.now-password": [[${#messages.msg('index.userinfo.now-password')}]],
+            "index.userinfo.password.modify" : [[${#messages.msg('index.userinfo.password.modify')}]],
+            "index.userinfo.delete-account" : [[${#messages.msg('index.userinfo.delete-account')}]],
+            "index.userinfo.delete-account.warning" : [[${#messages.msg('index.userinfo.delete-account.warning')}]],
+
+        };
+
+        return messages[key];
+    }
+    /*]]>*/
+</script>
+</body>
+</html>

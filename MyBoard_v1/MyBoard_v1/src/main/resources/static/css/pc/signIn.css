@@ -1,0 +1,49 @@
+.component-sign-in{
+    margin-top : 100px;
+    width : 270px;
+    height : 400px;
+    background-color: white;
+    padding: 50px;
+
+    border-radius: 25px;
+}
+
+.component-sign-in .title{
+    font-size: 2.0em;
+    border-bottom : 2px solid gray;
+    margin-bottom: 15px;
+}
+
+.component-sign-in input {
+    margin-top: 5px;
+}
+
+.component-sign-in .social .btn a{
+    width: 150px;
+    margin-bottom: -10px;
+}
+
+.component-sign-in .social .btn a[name=google]{
+    background-color: #cf4a33;
+}
+.component-sign-in .social .btn a[name=naver]{
+    background-color: green;
+}
+.component-sign-in .social .btn a[name=kakao]{
+    /*background-color: #f7e600;*/
+    background-color: #e2d200;
+
+}
+.component-sign-in .social .btn div[name=test]{
+    /*background-color: #f7e600;*/
+    background-color: #545b62;
+    width: 150px;
+
+}
+
+.component-sign-in input[name=x] {
+    position: relative;
+    bottom : 25px;
+    left : 35px;
+
+}

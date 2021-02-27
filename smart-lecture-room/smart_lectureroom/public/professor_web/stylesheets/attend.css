@@ -1,0 +1,268 @@
+.display-none{
+    display: none;
+}
+.controllBtn{
+    float: right;
+    margin-right: 130px;
+}
+select[name=session]{
+    width: 80px;
+    height: 35px;
+    font-size: 18px;
+}
+input[name=autoAttendence]{
+
+    font-family: SegoeUI;
+    font-size: 21px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #212121;
+
+    width: 139.2px;
+    height: 41.1px;
+    border-radius: 15px;
+    background-color: #f0d78c;
+}
+input[name=saveBtnAttendList],input[name=saveBtn_StudentList]{
+    width: 139.2px;
+    height: 41.1px;
+    border-radius: 15px;
+    background-color: #efa35c;
+    font-family: SegoeUI;
+    font-size: 21px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+}
+
+.attendPage{
+    margin : 0px 230px;
+}
+.color{
+    position: relative;
+    top : -4px;
+    width: 14px;
+    height: 100px;    
+}
+
+.attendPage .createBtn{
+    width : 1150px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #ffffff;
+    border-bottom: solid 2px #d6d2d2;
+
+    font-family: SegoeUI;
+    font-size: 28px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    text-align: left;
+    color: #212121;
+
+    margin-left: 50px;
+}
+.attendPage .createUI{
+    margin-left : 50px;
+}
+/* .attendPage .create .studentList{
+    font-size: 1.3em;
+} */
+
+    
+table *{
+    /* height: 37px; */
+    font-family: SegoeUI;
+    font-size: 28px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    text-align: left;
+    color: #212121;
+}
+/* 출석부의 사진 길이 */
+table .picture{
+    width : 150px;
+}
+/* 출석부의 학번,이름 길이 */
+table .name , table .id{    
+    height: 37px;
+    font-family: SegoeUI;
+    font-size: 28px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    text-align: left;
+    color: #212121;
+}
+table .name{
+    width: 400px;
+}
+/* 출석 지각 결석 라디오의 간격 */
+
+table .attend .checks{
+    margin-right: 138px;
+    margin-left: 15px;
+}
+.attendPage .create .studentList .student .picture img{
+    width : 80px;
+    height : 100px;
+}
+
+.attendPage .create .controllBtn input[name=late]{
+    width : 50px;   
+}
+
+.attendPage .attendList .attend .info .student .picture img{
+    width : 80px;
+    height : 100px;
+}
+.attendPage .attendList{
+    margin-left : 50px;
+}
+
+.attendPage .attendList .attend .delete{
+    display: inline-block;
+    width: 25px;
+}
+.attendPage .attendList .attend .title{
+    display: inline-block;
+}
+.attendPage .attendList .attend .title {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #ffffff;
+    border-bottom: solid 2px #d6d2d2;
+
+    width: 1150px;
+    height: 37px;
+    font-family: SegoeUI;
+    font-size: 28px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    text-align: left;
+    color: #212121;
+    
+}
+
+.attendPage .lecture-name{
+    width: 434px;
+    height: 47px;
+    font-family: SegoeUI;
+    font-size: 35px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.34;
+    letter-spacing: normal;
+    text-align: left;
+    color: #4f81c7;
+
+    margin-bottom: 45px;
+}
+
+.attendPage table{
+    border : none;
+    border-spacing: 10px;
+    
+}
+.attendPage table *{
+    border: none;
+}
+
+
+
+
+
+
+
+/* 라디오 버튼 커스텀 css */
+.checks {position: relative;}
+/* 진짜라디오버튼 숨기기 */
+.checks input[type="radio"] { 
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+.checks input[type="radio"] + label {
+  display: inline-block;
+  /* absolute로 설정해야 축 처지지 않음 */
+  position: absolute; 
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.checks input[type="radio"] + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  width: 31px;
+  height: 31px;
+  text-align: center;
+  /* background: #fafafa; */
+  /* background: gray; */
+  border: 1px solid #cacece;
+  border-radius: 100%;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+}
+.checks input[type="radio"] + label:active:before,
+.checks input[type="radio"]:checked + label:active:before  {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.checks input[type="radio"]:checked + label:before {
+  background: #E9ECEE;
+  border-color: #adb8c0;
+}
+.checks input[type="radio"]:checked + label:after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -1px;
+  /* width: 13px;
+  height: 13px; */
+  width: 37px;
+  height: 37px;
+/*   background: #99a1a7; 버튼이 선택되었을대 색*/ 
+  border-radius: 100%;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+
+}
+/* 버튼이 선택되기전 */
+.checks input[type="radio"] + label:before{ 
+    background: #bec1c9;
+}
+/* 버튼이 선택된 후 출석, 지각, 결석*/
+.checks .a001:checked + label:after {
+    background: #4f81c7;
+}
+.checks .a002:checked + label:after {
+    background: #64c4ed;
+}
+.checks .a003:checked + label:after {
+    background: #efa35c;
+}

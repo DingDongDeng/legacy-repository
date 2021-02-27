@@ -1,0 +1,15 @@
+{
+  "name": "lex_cafe_show_mymenu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.321.0",
+    "lodash": "^4.17.11"
+  }
+}

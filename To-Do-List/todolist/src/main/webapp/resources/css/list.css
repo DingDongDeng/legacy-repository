@@ -1,0 +1,201 @@
+.hidden{
+	display : none;
+}
+.visibilityHidden{
+	visibility : hidden;
+}
+.shadow{
+	/* box-shadow: 0 3px 6px rgba(0,0,0,0.9), 0 3px 6px rgba(0,0,0,0.6); */
+	box-shadow : 5px 5px 5px #000;
+}
+.listPage .guide{
+	display:inline-block;
+	background: white;
+	width: 340px;
+	height: 50px;
+	font-size : 1.5em;
+	line-height: 50px;
+	margin-bottom: 20px;
+}
+.listPage .sample{
+	display:inline-block;
+	width:20px;	
+	height:20px;
+}
+.greenBorder{
+	background : rgb(0,128,0,0.95);
+	color: white;
+	
+	
+}
+.redBorder{
+	background : rgb(255,0,0,0.95);
+	color: white;
+	
+	
+}
+.grayBorder{
+	background : rgb(80,80,80,0.95);
+	color: white;
+	/* background-color : rgba(0,0,0,0.8); */
+	
+}
+.selector {
+	word-break:break-all;
+}
+
+.listPage {
+	padding : 25px;
+}
+.listPage input[type=button] {
+	box-shadow: 5px 5px 5px;	
+}
+
+.listPage .header {
+	text-align : right;
+	width: 115%;
+	margin-bottom : 10px;
+}
+.listPage .header input[name=add]{
+	width : 45px;
+	height : 45px;
+	background-image:url('/todolist/resources/img/write.png');
+	background-color : white;
+	background-repeat : no-repeat;
+	background-position : center center;
+	border:0px;
+	border-radius : 10px;
+	padding : 0px;
+	margin-left : 15px;
+
+	
+}
+.listPage .list{
+	/* overflow-y:scroll; */
+	height : 375px;
+}
+.listPage .list .item{
+	position : relative;
+	right : -1000px;
+}
+.listPage .list .item .cover{
+	margin-bottom : 20px;
+}	
+
+	
+.listPage .list .item .cover > div{
+	display : inline-block;
+	width : 535px;
+	height : 110px;
+	line-height : 50px;
+/* 	border : 1px solid black; */
+	padding-left : 15px;	
+}
+.listPage .list .item .detail{
+	margin-top : -10px;
+	margin-bottom : 15px;
+	/*애니메이션 효과를 위한 속성*/
+	height:0px;
+	opacity:0; 
+}
+.listPage .list .item .detail >div{
+	display : inline-block;
+	margin-top : 10px;
+	margin-bottom : 10px;
+/* 	border : 1px solid black; */
+	width : 500px;
+	height : 200px;
+	padding : 15px;
+}
+.listPage .list .item .detail > span{
+	float:right;
+	margin-top : 80px;
+	margin-right : 15px;	
+}
+
+
+.listPage .list .item .detail span input[name=up]{
+	margin-top : 5px;
+	width:32px;
+	height:32px;
+	border:0px;
+	padding:0px;
+	
+	background-image:url('/todolist/resources/img/up.png');
+	background-color : white;
+	background-repeat : no-repeat;
+	background-position : center center;
+}
+.listPage .list .item .detail span input[name=down]{
+	margin-top : 5px;
+	width:32px;
+	height:32px;
+	border:0px;
+	padding:0px;
+	
+	background-image:url('/todolist/resources/img/down.png');
+	background-color : white;
+	background-repeat : no-repeat;
+	background-position : center center;
+}
+
+.listPage .list .item .detail .edit{
+	text-align : right;
+}
+
+.listPage .list .item .detail .edit input[name=modify]{
+	width:32px;
+	height:32px;
+	border:0px;
+	padding:0px;
+	
+	background-image:url('/todolist/resources/img/modify.png');
+	background-color : white;
+	background-repeat : no-repeat;
+	background-position : center center;
+	
+	border-radius:15px;
+}
+
+.listPage .list .item .detail .edit input[name=delete]{
+	width:32px;
+	height:32px;
+	border:0px;
+	padding:0px;
+	
+	background-image:url('/todolist/resources/img/delete.png');
+	background-color : white;
+	background-repeat : no-repeat;
+	background-position : center center;
+	
+	border-radius:15px;
+}
+.listPage .list .item .detail ._content{
+	overflow-y:scroll;
+	display : inline-block;
+	font-size : 1.5em;	
+/* 	padding : 25px; */
+	width : 510px;
+	height: 180px;
+}
+
+.listPage .list .item .cover div .title{
+	display:inline-block;
+	width : 385px;
+	height : 90px;
+	padding-top : 7px;
+	font-size : 2.7em;
+}
+.listPage .list .item .cover div .date{
+	display:inline-block;
+	float : right;
+	margin-right : 10px;
+}
+
+.listPage .list .item .cover input[type=checkbox]{
+	width: 25px;
+	height : 25px;
+	margin-bottom : -10px;
+	float:right;
+	margin-top : 35px;
+}

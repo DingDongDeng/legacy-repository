@@ -1,0 +1,150 @@
+.focus-cctv{
+    border-bottom: 3px solid blue;
+}
+
+.display-none{
+    display: none;
+}
+
+.mainPage .room-selector{
+    float: left;
+    width : 500px;
+    height: 600px;
+    margin-left: 175px;
+}
+
+.mainPage .room-selector .room-list .room{
+    display: inline-block;
+    width: 130px;
+    height: 68px;
+    background-color: #fcfafa;
+
+    padding-top: 15px;
+    padding-bottom: 0px;
+    margin-top: 15px;
+    margin-left: 10px;
+
+    font-family: SegoeUI;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #777777;
+}
+
+.mainPage .room-view{
+    float: right;
+    width: 1110px;
+    height: auto;
+}
+
+.mainPage .room-selector .room-list .room .room-state > div{
+    display: inline-block;
+
+    width: 27px;
+    height: 27px;
+    border-radius: 6px;
+    background-color: #efa35c;
+    /* background-color: #64c4ed; */
+}
+.delete{
+    position: relative;
+    left: 350px;
+    bottom: 40px;
+    display: inline-block;
+    width: 22px;
+}
+.cctv{
+    display: block;
+}
+.cctv-list{
+    min-height: 600px;
+    margin-left: 73px;
+}
+.cctv-list *{
+    display: inline-block;
+    margin-left: 15px;
+    width: 400px;
+
+}
+.mainPage .building-name, .room-title{
+
+    display: inline-block;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #ffffff;
+    border-bottom: solid 2px #d6d2d2;
+
+    width: 400px;
+    height: 31px;
+    font-family: SegoeUI;
+    font-size: 23px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: left;
+    color: #4f81c7;
+}
+
+.controllerLeft {
+    margin-left: 165px;
+    /* position : absolute; */
+    left : 150px;
+    bottom : -100px;
+    margin-top: 35px;
+    display: inline-block;
+}
+.controllerRight{
+    /* position: absolute; */
+    right : 100px;
+    bottom : -100px;
+    display: inline-block;
+    margin-left: 380px;
+}
+.controllerLeft input[type=button]{
+    width: 125px;
+    height: 45px;
+    border-radius: 8px;
+    border: solid 1px #4f81c7;
+    background-color: #4f81c7;
+    font-family: SegoeUI;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+}
+
+.controllerRight input[type=button]{
+    width: 125px;
+    height: 45px;
+    border-radius: 8px;
+    border: solid 4px #4f81c7;
+    background-color: #ffffff;
+    font-family: SegoeUI;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4f81c7;
+}
+
+.motion-state{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: green;
+}

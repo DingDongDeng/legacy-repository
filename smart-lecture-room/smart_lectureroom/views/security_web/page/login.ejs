@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel='stylesheet' href='/public/<%= webName %>/stylesheets/<%= pageName %>.css' />
+  </head>
+  <body>
+    <div class="loginPage">
+      <div class="introduce">
+        <div name="title">
+          경비관리 시스템 스루미
+        </div>
+        <div name="sub-title">
+          스루미로 쉽고 빠른 강의 관리
+        </div>
+      </div>
+      <!-- 오른쪽 로그인 박스 -->
+      <div class="loginUI">
+        <div class="title">
+          <img  class="login-img" src="/public/<%= webName %>/img/그룹 796.png" alt="login-img">
+          <h1>
+            경비 관리 시스템
+          </h1>
+        </div>
+        <div class="input">
+          <!-- placeholder 지웠습니다 -->
+          <p class="name">Name</p>
+          <input name="id" type="text"></br>
+          <p class="password">Password</p>
+          <input name="pw" type="password">
+        </div>
+        <!-- 로그인 버튼 -->
+        <div class="buttons">
+          <!-- type button에서 image로 수정했습니다 -->
+          <input class="buttons-in" name="login" type="image" src="/public/<%= webName %>/img/그룹 146.png" value="로그인">
+        </div>
+      </div>
+    
+    </div>
+    
+    <% include ../../include/baseJS.ejs %>
+    <script src="/public/<%= webName %>/javascripts/<%= pageName %>.js"></script>
+  </body>
+</html>

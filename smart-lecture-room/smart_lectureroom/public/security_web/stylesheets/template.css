@@ -1,0 +1,115 @@
+
+
+.template .topBar{
+    width: 1920px;
+    height: 159px;
+    box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    border-radius: 50px;
+}
+
+.template .topBar .process{
+    position: absolute;
+    top: 88px;
+    left : 92px;
+    width : 300px;
+}
+
+
+.template .topBar .info{
+    position: absolute;
+    top : 56px;
+    right : 0px;
+
+    width: 200px;
+}
+
+.template .topBar .title{
+    position: absolute;
+    top : 52.4px;
+    left : 47%;
+    width : 300px;
+}
+
+.template .topBar .process input{
+
+    width: 100px;
+    height: 33px;
+    font-family: SegoeUI;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.32;
+    letter-spacing: normal;
+    text-align: left;
+    color: #4f81c7;
+
+}
+
+/* .template .sideBar {
+    position : fixed;
+    top : 120px;
+    left : 25px;
+    bottom: 25px;
+
+    width : 250px;
+
+    background-color: red;
+} */
+
+.template .page{
+    width: 1791px;
+    /* height: 837px; */
+    background-color: #ffffff;
+
+    margin : 34px 65px;
+}
+
+.template .logo{
+    width: 170px;
+}
+
+.template .name{
+    position: relative;
+    right: 80px;
+}
+
+.template .sub{
+    font-family: SegoeUI;
+    font-size: 20px;
+    color: #1b3764;
+}
+
+.template input{
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.template .info{
+    font-size: 23px
+}
+
+.template .profile-img{
+    position: absolute;
+    left: 67px;
+    top: -10px;
+}
+
+.template p{
+    position: absolute;
+    left: -85px;
+    top: -18px;
+}
+
+.template .logout{
+    top: 41px;
+    left: 23px;
+    position: absolute;
+}
+
+.template .button2{
+    position: absolute;
+    right: 55px;
+}

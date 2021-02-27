@@ -1,0 +1,25 @@
+<head>
+  <link rel='stylesheet' href='/public/<%= webName %>/stylesheets/<%= pageName %>.css' />
+</head>
+
+<div class="timeTablePage">
+  <table class="timeTable" border="1">
+    <tr class="tableHead">
+      <td>&nbsp;</td>
+      <td>월</td>
+      <td>화</td>
+      <td>수</td>
+      <td>목</td>
+      <td>금</td>
+    </tr>
+    <%- timeTable %>
+  </table>
+</div>
+
+<% include ../../include/baseJS.ejs %>
+<script src="/public/<%= webName %>/javascripts/<%= pageName %>.js"></script>
+
+
+
+
+

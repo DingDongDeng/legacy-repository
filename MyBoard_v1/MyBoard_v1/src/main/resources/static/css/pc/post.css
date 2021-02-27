@@ -1,0 +1,109 @@
+.component-post{
+    margin-top : 100px;
+    width : 1000px;
+    height : 700px;
+    background-color: white;
+    padding: 50px;
+
+    overflow-y: scroll;
+    border-radius: 25px;
+}
+
+.component-post .childComment{
+    margin-left: 90px;
+}
+
+.component-post .title{
+    font-size: 2.4em;
+    border-bottom : 2px solid gray;
+}
+.component-post .post .content{
+    font-size: 1.8em;
+    min-height: 400px;
+    padding: 25px;
+    border-bottom : 2px solid gray;
+}
+.component-post .like{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.component-post .nickname{
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom : 2px solid gray;
+}
+.component-post .detail-info{
+    font-size: 1.1em;
+    font-weight: bold;
+    border-bottom : 2px solid gray;
+}
+.component-post .detail-info .info-name{
+    width: 90px;
+}
+.component-post .detail-info .info-value{
+    width: 140px;
+}
+.component-post .file-name{
+    max-width: 400px;
+    min-width: 250px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-bottom: 2px solid gray;
+    margin-top : 10px;
+}
+.component-post .detail{
+    position: relative;
+    right: 0px;
+}
+.component-post .edit{
+    position: relative;
+    top: -50px;
+}
+.component-post .comment{
+    margin-top: 50px;
+}
+.component-post .comment-list-item{
+    margin-top: 25px;
+}
+.component-post .comment textarea{
+    font-weight: bold;
+    font-size: 1.4em;
+    width: 300px;
+    min-height: 150px;
+}
+.component-post .comment .wrapper-btn{
+    width: 300px;
+}
+
+.component-post .comment .content{
+    font-weight: bold;
+    font-size: 1.4em;
+    width: 300px;
+    min-height: 150px;
+    border-radius: 10px;
+    border : 2px solid gray;
+}
+.component-post .comment .wrapper-like-nick{
+}
+.component-post .comment .date{
+    font-size: 1.0em;
+    font-weight: bold;
+}
+.component-post .comment .reply-btn{
+    width: 300px;
+}
+.component-post .comment .reply-btn input{
+    float: right;
+    position: relative;
+    top:-45px;
+    right : 10px;
+}
+.component-post .comment .delete-comment{
+    font-weight: bold;
+    font-size: 1.4em;
+    width: 300px;
+    min-height: 150px;
+    margin-bottom: 50px;
+    border : 2px solid gray;
+}
+

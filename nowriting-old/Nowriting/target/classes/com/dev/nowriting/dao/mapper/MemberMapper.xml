@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+ <mapper namespace="com.dev.nowriting.dao.MemberMapper">
+ 	<select id="findMail" resultType="com.dev.nowriting.dto.MemberDTO">
+ 		SELECT 
+ 			MAIL,
+ 			PW,
+ 			NAME,
+ 			AUTHKEY,
+ 			AUTHSTATUS,
+ 			SIGNUPDATE
+ 		FROM MEMBER
+ 		WHERE MAIL = #{mail}
+ 	</select>
+ 	<insert id="insertMember" >
+ 	<!-- parameterType="com.dev.nowriting.dto.MemberDTO" -->
+    	INSERT INTO MEMBER(
+    		MAIL,
+    		PW,
+    		NAME,
+    		AUTHKEY,
+    		AUTHSTATUS,
+    		SIGNUPDATE
+    	)
+    	VALUES(
+	    	#{memberDTO.mail},
+	    	#{memberDTO.pw},
+	    	#{memberDTO.name},
+	    	#{memberDTO.authkey},
+	    	#{memberDTO.authstatus},
+	    	#{memberDTO.signUpDate}
+    	)
+    </insert>
+    
+    <update id="updateAuthStatus">
+    	UPDATE MEMBER 
+    	SET AUTHSTATUS=1 
+    	WHERE MAIL=#{mail} AND AUTHKEY=#{authKey}
+    </update>
+    
+    <update id="updateMemberWithOutMail">
+    	UPDATE MEMBER
+    	SET PW = #{memberDTO.pw} and 
+    		NAME = #{memberDTO.name} and
+    		AUTHKEY = #{memberDTO.authkey} and
+    		AUTHSTATUS = #{memberDTO.authstatus} and
+    		SIGNUPDATE = #{memberDTO.signUpDate}
+    	WHERE MAIL = #{memberDTO.mail} 
+    		
+    </update>
+    
+    <select id="findOnlyPW" resultType="java.lang.String">
+    	SELECT PW 
+    	FROM MEMBER
+    	WHERE MAIL = #{mail}
+    </select>
+    
+    <update id="updateName">
+    	UPDATE MEMBER
+    	SET NAME = #{name}
+    	WHERE MAIL = #{mail}
+    </update>
+    
+    <update id="updatePW">
+    	UPDATE MEMBER
+    	SET PW = #{pw}
+    	WHERE MAIL = #{mail}
+    </update>
+    
+    <delete id ="deleteMember">
+    	DELETE FROM MEMBER
+    	WHERE MAIL = #{mail}
+    </delete>
+    
+    <delete id ="deleteNotAuthMember">
+		DELETE FROM MEMBER
+		WHERE 
+			TO_DATE(TO_CHAR(SYSDATE,'YYYYMMDD'))-TO_DATE(TO_CHAR(SIGNUPDATE,'YYYYMMDD'))>=1
+			AND AUTHSTATUS = 0
+    </delete>
+ </mapper>

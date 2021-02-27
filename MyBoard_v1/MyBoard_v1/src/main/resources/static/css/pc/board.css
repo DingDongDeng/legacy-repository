@@ -1,0 +1,56 @@
+.board{
+
+}
+.board .board-head{
+    text-align: center;
+}
+.board .board-table{
+    margin-bottom: 5px;
+    margin-top : 20px;
+}
+
+.board .page-item{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.board .table thead{
+    font-weight: bold;
+}
+.board .table td[name=number]{
+    width: 65px;
+}
+.board .search {
+    margin-top : 15px;
+}
+.board .search select{
+    height: 30px;
+}
+.board input[name=write]{
+    float: right;
+}
+.board .num{
+    text-align: center;
+    width: 100px;
+}
+.board .title{
+    width: 335px;
+}
+.board .date{
+    text-align: right;
+    font-size: 0.8em;
+    padding: 5px 0px 0px 0px;
+    width : 100px;
+}
+
+.board .like{
+    text-align: center;
+    width: 100px;
+}
+.board .view{
+    text-align: center;
+    width: 100px;
+}
+.board .nickname{
+    text-align: center;
+}

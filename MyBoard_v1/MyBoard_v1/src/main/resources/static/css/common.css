@@ -1,0 +1,75 @@
+.inline-block{
+    display: inline-block;
+}
+.display-none{
+    display: none;
+}
+.display-block{
+    display: block;
+}
+
+.margin-auto-center{
+    margin : 0px auto;
+}
+
+.cover-view{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background:  rgba(55, 55, 55, 0.76);
+    overflow-y: scroll;
+    z-index: 1041;   /* summernote의 모달창과의 상호작용때문에 추가*/
+}
+
+.cover-view-wrapper{
+
+}
+
+.focusPage{
+    background-color: skyblue !important;
+}
+.focusLike{
+    background-color: skyblue !important;
+}
+.warning-font{
+    font-weight: bold;
+    font-size: 0.8em;
+    color: red;
+    margin-bottom: 5px;
+}
+.right{
+    float: right;
+}
+.left{
+    float: left;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/*page loader css*/
+.loading {
+    position : fixed;
+    top : calc(50% - 100px);
+    left : calc(50% - 100px);
+    z-index: 2000;
+}

@@ -1,0 +1,105 @@
+.whole {
+	margin : 100px auto 0px auto;
+	width: 500px;
+	height : 365px;
+	background : rgb(80,80,80,0.95);
+	padding-bottom : 15px;
+	box-shadow : 5px 5px 5px #000;
+}
+#findPW{
+	width : 135px;
+	height : 25px;
+	margin-top : 23px;
+	margin-left : 3px;
+	padding : 0px;
+	border : 0px;
+	box-shadow : 5px 5px 5px #000;
+	font-family: 'Baloo Bhai', cursive;
+	font-size : 0.8em;
+}
+.findPWForm{
+	opacity : 0;
+	width: 300px;
+	height: 230px;
+	margin-top : 100px;
+	margin-left : auto;
+	margin-right : auto; 
+	background : rgb(80,80,80,0.95);
+	font-family: 'Do Hyeon', sans-serif;
+	box-shadow : 5px 5px 5px #000;
+}
+.findPWForm h3{
+	font-size : 2.0em;
+	background : black;
+	line-height: 50px;
+	text-align:center;
+	color : white;
+	height : 50px;
+	font-family: 'Baloo Bhai', cursive;
+}
+.findPWForm div{
+	
+	padding : 15px;
+	color : white;
+}
+.findPWForm > input{
+	margin-left : 20px;
+	width: 260px;
+	height : 30px;
+	font-size : 1.1em;
+	padding : 10px;
+}
+.findPWForm div input{
+	padding : 0px;
+	border : 0px;
+	width: 45px;
+	font-family: 'Baloo Bhai', cursive;
+}
+.findPWForm div input[name=send]{
+	margin-left : 168px;
+}
+
+.title{
+	text-align : center;
+	height: 100px;
+	line-height : 100px;
+	background-color : black;
+	font-family: 'Baloo Bhai', cursive;
+}
+.title h1{
+	margin : 0px;
+	color : white;
+}
+.contents .inputs{
+	text-align : center;
+	margin-top : 50px;
+	
+}
+.contents .inputs input{
+	width : 300px;
+	height : 60px;
+	font-size : 1.7em;
+	text-align : center;
+	font-family: 'Do Hyeon', sans-serif;
+}
+.contents .buttons{
+	margin-top : 50px;
+	text-align : right;
+}
+.contents .buttons input{
+	width : 100px;
+	height : 50px;
+	font-size : 1.4em;
+	font-family: 'Baloo Bhai', cursive;
+	background : rgb(255,255,255,1);
+	border:0px;
+	padding:0px;
+	
+	box-shadow : 5px 5px 5px #000;
+	margin-bottom : 10px;
+	height : 35px;
+}
+#login{
+	margin-right : 25px;
+}
+

@@ -1,0 +1,29 @@
+{
+  "name": "smart-lecture-room",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "atob": "^2.1.2",
+    "aws-sdk": "^2.486.0",
+    "child-process-promise": "^2.2.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.16.1",
+    "fcm-node": "^1.5.1",
+    "fs": "0.0.1-security",
+    "handbrake-js": "^4.0.0",
+    "http-errors": "~1.6.3",
+    "mongodb": "^3.2.6",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "net": "^1.0.2",
+    "request": "^2.88.0",
+    "socket.io": "^2.2.0",
+    "ws": "^7.1.2"
+  }
+}

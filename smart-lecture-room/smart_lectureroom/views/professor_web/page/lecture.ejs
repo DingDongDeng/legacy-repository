@@ -1,0 +1,60 @@
+<head>
+  <link rel='stylesheet' href='/public/<%= webName %>/stylesheets/<%= pageName %>.css' />
+</head>
+
+<div class="lecturePage">
+  <div class="lecture-name"> <%= lectureName %> </div>
+  <div class="create">
+    <div class="createBtn">
+      <img src="/public/<%= webName %>/img/꺽쇠.png"> </img> 
+      &nbsp; 강의촬영
+    </div>
+    <div class="createUI display-none">
+      <div>
+        <input name="title" type="text" placeholder="제목">
+      </div>
+      <div>
+        <!-- <canvas id="videoCanvas" width="1280" height="960"> -->
+        <canvas id="videoCanvas" style="width: 1100px; height:619px;">
+          <p>
+              <!-- Please use a browser that supports the Canvas Element, like
+              <a href="http://www.google.com/chrome">Chrome</a>,
+              <a href="http://www.mozilla.com/firefox/">Firefox</a>,
+              <a href="http://www.apple.com/safari/">Safari</a> or Internet Explorer 10 -->
+          </p>
+        </canvas>
+    
+        
+      </div>
+      <div class="controllBtn">  
+        <input name="rec" type="button"  value="RECORD">
+        <input class="display-none" name="save" type="button"  value="저장">
+      </div>
+    </div>
+  </div>
+  
+  <div class="lectureList">
+    <% for(let i=0; i< lectureList.length; i++) { %>
+      <div class="lecture">
+        <div class="video_id display-none"> <%= lectureList[i].lecture_video_id %></div>
+        <div class="title"> 
+          <img src="/public/<%= webName %>/img/꺽쇠.png"> </img>
+          &nbsp; <%= lectureList[i].video_title %> 
+        </div>
+        <div class="delete"> x </div>
+        <div class="video"></div>
+        <div class="controllBtn"></div>
+      </div>
+    <% } %>  
+  </div>
+  
+</div>
+
+<% include ../../include/baseJS.ejs %>
+<script src="/public/commonJS/jsmpeg.min.js"></script>
+<!-- <script src="/public/commonJS/ajaxVideoRequest.js?id=<%= user.id %>"></script> -->
+<script src="/public/commonJS/ajaxVideoRequest.test.js?id=<%= user.id %>"></script>
+<script src="/public/<%= webName %>/javascripts/<%= pageName %>.js"></script>
+<script type="text/javascripts">
+  
+</script>

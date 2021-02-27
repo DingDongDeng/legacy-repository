@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+ <mapper namespace="com.programmers.todolist.dao.MemberMapper">
+ 	<select id="findMail" resultType="com.programmers.todolist.dto.MemberDTO">
+ 		SELECT 
+ 			MAIL,
+ 			PASSWORD,
+ 			AUTHKEY,
+ 			AUTHSTATUS,
+ 			SIGNUPDATE
+ 		FROM MEMBER
+ 		WHERE MAIL = #{mail}
+ 	</select>
+ 	
+ 	<insert id="insertMember">
+ 		INSERT INTO MEMBER(
+ 			MAIL,
+ 			PASSWORD,
+ 			AUTHKEY,
+ 			AUTHSTATUS,
+ 			SIGNUPDATE
+ 		)
+ 		VALUES(
+ 			#{memberDTO.mail},
+ 			#{memberDTO.password},
+ 			#{memberDTO.authkey},
+ 			#{memberDTO.authstatus},
+ 			#{memberDTO.signUpDate}
+ 		)
+ 	</insert>
+ 	 <update id="updateAuth">
+    	UPDATE MEMBER 
+    	SET AUTHSTATUS=1 
+    	WHERE MAIL=#{mail} AND AUTHKEY=#{authkey}
+    </update>
+    <delete id="deleteNotAuthMail">
+    	DELETE FROM MEMBER
+		WHERE 
+			TO_DATE(TO_CHAR(SYSDATE,'YYYYMMDD'))-TO_DATE(TO_CHAR(SIGNUPDATE,'YYYYMMDD'))>=1
+			AND AUTHSTATUS = 0
+    </delete>
+ </mapper>
